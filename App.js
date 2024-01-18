@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import AppBarBottom from "./src/components/AppBar/AppBarBottom"
+import Navigation from "./src/components/Navigation"
+import StyledText from "./src/styleds/StyledText"
+import Constants from 'expo-constants'
+import { StyleSheet, View } from "react-native"
 
-export default function App() {
-  return (
+const HeaderApp= () => {
+  return(
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <StyledText fontSize='superBig' fontWeight='bold' color='colorTitlePrimary'>Finanzauto</StyledText>
+    </View>    
+)
+}
+
+const App = () => {
+  return(
+    <>
+      <HeaderApp/>
+      <Navigation/>
+    </>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    flexDirection: 'row',
+    paddingTop: Constants.statusBarHeight + 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+  }
+})
+
+export default App
